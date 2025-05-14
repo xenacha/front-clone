@@ -1,0 +1,41 @@
+@import "../css/reset.css";
+@import "../css/header.css";
+@import "../css/footer.css";
+@import "../css/main.css";
+
+/*  style3.css 에 주입 후 --> cloneCode.html 에 호출  */
+
+.media-msg {
+  position: fixed; /* 스크롤 해도 위치 고정 */
+  top: 0px;
+  left: 0px;
+  width: 100vw; /* view wide 화면의 100% */
+  height: 100vh; /* view height 화면의 100% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: salmon; /* 배경색 반투명 */
+  transition: all 0.2s ease-in-out; /* 부드럽게 전환 */
+  /*  opacity: 1; */
+}
+
+@media screen and (max-width: 500px) {
+  /* 특정 크기 이하 -> 모바일 화면 적용 */
+  .media-msg {
+    /* opacity: 0; */
+    /* 화면 가로 500px 이하 -> media-msg 투명*/
+    /* 투명하게만 보일 뿐 존재함 -> 화면을 덮고 있기떄문에 버튼 작동 X
+     --> 화면에서 제거 해야 함  */
+    display: none; /* 화면에서 제거 */
+  }
+}
+
+:root {
+  /* HTML 문서의 최상위 요소인 <html>을 선택하는 CSS 선택자*/
+
+  /* CSS 변수(커스텀 프로퍼티)**를 정의 */
+
+  /* 전역에서 사용할 수 있는 변수처럼 재사용 가능한 값 --> var() 함수로 호출 */
+  --button-primary: rgb(254, 111, 15); /* 버튼 기본 색상 */
+  --button-hover: rgba(254, 111, 15, 0.8); /* 버튼 hover 색상 */
+}
