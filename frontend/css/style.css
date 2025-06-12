@@ -1,0 +1,72 @@
+/* :root {
+  
+  --main-color: rgb(98, 22, 147);
+  --sub-color: rgb(160, 60, 50); 
+} */
+
+div {
+  /*  width: 100px;
+  height: 100px; */
+  /* background-color: palevioletred; */
+  /* background-color: var(--main-color); */ /* var() 변수 */
+  /* margin: 20px; */
+
+  width: 1000px;
+  height: 300px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 200px;
+  /*   transition: all 2.5s ease-in-out;
+ */
+}
+
+div {
+  transition: all 1s ease-in-out;
+  perspective: 1000px;
+}
+
+div:hover {
+  /* div가 hover 됐을 때 div에 효과 적용*/
+}
+
+div:hover img {
+  /*  width: 500px; */
+  /*  transform: scale(3)  rotateY(360deg); */
+}
+
+@keyframes moving-logo {
+  /* from {
+    transform: scale(0.3);
+  }
+  to {
+    transform: scale(3) rotateY(360deg);
+  } */
+
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(3) rotateY(360deg);
+  }
+  50% {
+    transform: scale(1);
+    transform: translateX(-200px);
+  }
+
+  75% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: scale(3);
+  }
+}
+
+img {
+  width: 100px;
+  transition: all is 1s cubic-bezier(0.5, 0, 0.5, 1);
+  animation: moving-logo 3s infinite; /* 애니메이션 효과 2초 지속 */
+}

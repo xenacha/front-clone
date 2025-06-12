@@ -1,0 +1,64 @@
+main {
+  margin-bottom: 60px;
+}
+
+.item-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ededef;
+  padding: 20px 0 20px 0;
+  cursor: pointer;
+}
+
+.item-img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* rgba: rgb 값 + 알파 -> 불투명도까지 조절 */
+  border-radius: 12px;
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-self: center; /* 세로 정렬 */
+}
+
+.item-img img {
+  width: 50px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  justify-content: start; /* 주축 */
+  align-items: start; /* 주축에서 수직방향 */
+  padding-right: 120px;
+}
+
+.item-info div {
+  margin-bottom: 15px;
+}
+
+.item-info-meta {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.write-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  background-color: var(--button-primary); /* style3.css > :root */
+  padding: 15px 15px 15px 15px;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; /* getcssscan.com */
+  cursor: pointer;
+  transition: all 1s ease-in-out; /* 부드럽게 전환 */
+}
+
+.write-btn:hover {
+  background-color: rgba(254, 111, 15, 0.8);
+  transition: all 0.3s ease-in-out; /* 부드럽게 전환 */
+}

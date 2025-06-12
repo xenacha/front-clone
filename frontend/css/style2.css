@@ -1,0 +1,102 @@
+/* :root {
+  
+  --main-color: rgb(98, 22, 147);
+  --sub-color: rgb(160, 60, 50); 
+} */
+
+div {
+  /*  width: 100px;
+    height: 100px; */
+  /* background-color: palevioletred; */
+  /* background-color: var(--main-color); */ /* var() 변수 */
+  /* margin: 20px; */
+
+  width: 1000px;
+  height: 300px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 200px;
+  /*   transition: all 2.5s ease-in-out;
+   */
+}
+
+div {
+  transition: all 1s ease-in-out;
+  perspective: 1000px;
+}
+
+div:hover {
+  /* div가 hover 됐을 때 div에 효과 적용*/
+}
+
+div:hover img {
+  /*  width: 500px; */
+  /*  transform: scale(3)  rotateY(360deg); */
+}
+
+@keyframes moving-logo {
+  /* from {
+      transform: scale(0.3);
+    }
+    to {
+      transform: scale(3) rotateY(360deg);
+    } */
+
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(4);
+  }
+  45% {
+    opacity: 0;
+    transform: scale(4); /* 사라졌다가 크게 나타감 */
+  }
+  50% {
+    opacity: 1;
+    transform: scale(4);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(4);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+img {
+  width: 100px;
+  transition: all is 1s cubic-bezier(0.5, 0, 0.5, 1);
+  animation: moving-logo 3s infinite;
+}
+
+#info-msg {
+  opacity: 0;
+  position: absolute; /* 상위요소(body) 기준 절대적으로 좌표 결정 */
+}
+
+@media screen and (max-width: 500px) {
+  /* 모바일 화면에서 적용: 화면 크기 300px 이하로 줄면 */
+  div {
+    opacity: 0; /* div가  보이지 않게 */
+  }
+  #info-msg {
+    /* id에 css부여할 떄 -> # */
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+  }
+}
