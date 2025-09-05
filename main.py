@@ -104,7 +104,7 @@ async def get_image(item_id: int):    #컬럼 정보 필요없음 -> id로 이�
                        SELECT image FROM items WHERE id={item_id}
                        """).fetchone()[0] # fetchone(): 하나의 행만 가져옴, [0] 0번째 인덱스 
 
-    return Response(content=bytes.fromhex(image_bytes)) #이미지 데이터 반환, fromhex() - 16진수 문자열을 바이트로 변환
+    return Response(content=bytes.fromhex(image_bytes), media_type='image/*') #이미지 데이터 반환, fromhex() - 16진수 문자열을 바이트로 변환
 
 
  # app.mount("/", StaticFiles(directory="frontend", html=True), name= "frontend") 
