@@ -23,6 +23,20 @@ con = sqlite3.connect('db.db', check_same_thread = False)
 cur = con.cursor()  # 커서 : 데이터베이스 작업을 위한 객체 
 
 
+# IF NOT EXISTS -> 테이블이 없을 경우에만 생성
+cur.execute(f"""
+            CREATE TABLE IF NOT EXISTS items (   
+                id integer primary key, 
+                title text not null,
+                image blob, 
+                price integer not null, 
+                description text, 
+                place text not null, 
+                insertAt integer not null
+            );
+            """)
+
+
 
 @app.post('/items') 
 async def create_item(image:UploadFile, 
