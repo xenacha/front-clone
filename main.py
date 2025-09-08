@@ -62,7 +62,7 @@ async def create_item(image:UploadFile,
     
     con.commit()
    
-    return '200' 
+    return  '200' 
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -105,6 +105,23 @@ async def get_image(item_id: int):    #컬럼 정보 필요없음 -> id로 이�
                        """).fetchone()[0] # fetchone(): 하나의 행만 가져옴, [0] 0번째 인덱스 
 
     return Response(content=bytes.fromhex(image_bytes), media_type='image/*') #이미지 데이터 반환, fromhex() - 16진수 문자열을 바이트로 변환
+
+
+@app.post('/signup')     #form 데이터 받기
+def signup(id:Annotated[str, Form()], 
+           password:Annotated[str, Form()], 
+           name:Annotated[str, Form()], 
+           email:Annotated[str, Form()]):
+    
+    #DB 저장
+    cur.execute(f"""                
+                INSERT INTO users (id, name, email, password)
+                VALUES(
+                '{id}', '{name}', '{email}', '{password}'); 
+                """)
+    
+    con.commit()
+    return {"result":"200"}
 
 
  # app.mount("/", StaticFiles(directory="frontend", html=True), name= "frontend") 

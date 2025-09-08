@@ -6,7 +6,9 @@ const handleSubmitForm = async (event) => {
   event.preventDefault(); // 제출 즉시 자동 새로고침 기능(reload:기록 삭제) 막음
 
   const body = new FormData(form); // formData 객체 생성
-  body.append("insertAt", new Date().getTime()); // 현재 시간 추가
+
+  // 현재 시간 추가: 세계시간
+  body.append("insertAt", new Date().getTime());
 
   try {
     const res = await fetch("/items", {
